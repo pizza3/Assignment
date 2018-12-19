@@ -1,0 +1,56 @@
+[
+    {
+        "links": [ 1, 8 ],
+        "visited": false
+    }, 
+    {
+        "links": [ 0, 2, 3 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 1 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 1, 4, 5],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 3, 6, 7 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 3, 9, 10 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 4 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 4 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 0 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 5 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 5 ],
+        "path": [],
+        "visited": false
+    },
+]
