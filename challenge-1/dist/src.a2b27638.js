@@ -28025,13 +28025,35 @@ function (_Component) {
       _this.setState({
         block: block
       });
-    }, _temp));
+    }, _this.computePostorder = function (start) {
+      var block = [],
+          leftStack = [];
+      var nodes = _this.state.Data;
+      var listToExplore = [start];
+
+      while (listToExplore.length > 0) {
+        var nodeIndex = listToExplore.shift();
+        nodes[nodeIndex].visited = true;
+        block.push(nodeIndex);
+
+        if (nodes[nodeIndex].links.length > 1) {
+          leftStack.push(nodes[nodeIndex].links[0]);
+          listToExplore.push(nodes[nodeIndex].links[1]);
+        } else if (leftStack.length > 0) {
+          listToExplore.push(leftStack.pop());
+        }
+      }
+
+      _this.setState({
+        block: block.reverse()
+      });
+    }, _this.computeInorder = function (start) {}, _temp));
   }
 
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.computePreorder(0);
+      this.computePostorder(0);
     }
   }, {
     key: "render",

@@ -10,7 +10,7 @@ export default class App extends Component{
     }
 
     componentDidMount(){
-        this.computePreorder(0);
+        this.computePostorder(0);
     }
 
     computeBFS = (start) => {
@@ -52,10 +52,35 @@ export default class App extends Component{
                 listToExplore.push(rightStack.pop());    
             }
         }
-
         this.setState({
             block:block
         })        
+    }
+
+    computePostorder = (start) => {
+        let block = [], leftStack=[];
+        let nodes = this.state.Data;
+        let listToExplore = [ start ];
+
+        while ( listToExplore.length > 0 ) {
+            let nodeIndex = listToExplore.shift();
+            nodes[ nodeIndex ].visited = true;
+            block.push(nodeIndex);
+            if(nodes[ nodeIndex ].links.length>1){
+                leftStack.push(nodes[nodeIndex].links[0]);
+                listToExplore.push( nodes[nodeIndex].links[1]);
+            }
+            else if(leftStack.length>0){                                
+                listToExplore.push(leftStack.pop());    
+            }
+        }
+        this.setState({
+            block:block.reverse()
+        })            
+    }
+
+    computeInorder = (start) =>{
+
     }
 
     render(){
