@@ -5,7 +5,6 @@ import SelectAlgo from './SelectAlgo';
 import Graph from './Graph';
 
 export default class App extends Component{
-
     state = {
         Data:[...data],
         block:[],
@@ -96,18 +95,8 @@ export default class App extends Component{
             }
             else{
                 let em = rightStack.pop();
-                // block.push(nodeIndex,em);
-                if(em === undefined){
-                    block.push(nodeIndex) 
-                }
-                else{
-                   block.push(nodeIndex,em);
-                }
-                // let el = nodes[em].links[1]||null;
-                (typeof(nodes[em]) === 'undefined')?
-                    null
-                :                 
-                    listToExplore.push(nodes[em].links[1]);
+                (em === undefined)?block.push(nodeIndex):block.push(nodeIndex,em);
+                (typeof(nodes[em]) === 'undefined')?null:listToExplore.push(nodes[em].links[1]);
             }
         }
         this.setState({
@@ -143,7 +132,7 @@ export default class App extends Component{
             <div>
                 <SelectAlgo changeAlgo={(i)=>{this.changeAlgo(i)}}/>
                 <Blocks block={this.state.block} />
-                <Graph/>
+                <Graph block={this.state.block} />
             </div>
         )
     }

@@ -17,6 +17,7 @@
     ],
     "plugins": [
         "syntax-dynamic-import",
-        "transform-class-properties"
+        "transform-class-properties",
+        "styled-jsx/babel"
     ]
 }

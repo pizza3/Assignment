@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
 
 export default class SelectAlgo extends Component{
     state={
@@ -15,36 +14,36 @@ export default class SelectAlgo extends Component{
 
     render(){
         return(
-            <Container>
-                <Text>
+            <div className='container'>
+                <div className='text'>
                     Select Search Algorithm
-                </Text>
-                <Select>
+                </div>
+                <div className='select'>
                     <select value={this.state.value} onChange={this.handleChange}>
                         <option value="1">BFS</option>
                         <option value="2">DFS-In</option>
                         <option value="3">DFS-Post</option>
                         <option value="4">DFS-Pre</option>
                     </select>
-                </Select>
-            </Container>
+                </div>
+                <style jsx>{`
+                    .container{
+                        width:100%;
+                        height:70px;                    
+                    }
+
+                    .text{
+                        text-align:center;
+                        font-size: 31px;
+                        margin-top: 32px;
+                    }
+
+                    .select{
+                        text-align:center;
+                        margin-top: 10px;
+                    }
+                `}</style>
+            </div>
         )
     }
 }
-
-const Container = styled.div`
-    width:100%;
-    height:70px;
-
-`;
-
-const Text = styled.div`
-    text-align:center;
-    font-size: 31px;
-    margin-top: 32px;
-`;
-
-const Select = styled.div`
-    text-align:center;
-    margin-top: 10px;
-`;
