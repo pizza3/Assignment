@@ -28006,27 +28006,25 @@ function (_Component) {
     }, _this.computePreorder = function (start) {
       var block = [],
           rightStack = [];
-      block.push(start);
       var nodes = _this.state.Data;
       var listToExplore = [start];
-      nodes[start].visited = true; // while ( listToExplore.length > 0 ) {
-      //     let nodeIndex = listToExplore.shift();
-      //     nodes[ nodeIndex ].links.forEach( function( childIndex ) {
-      //             if ( !nodes[ childIndex ].visited ) {
-      //                 nodes[ childIndex ].visited = true;
-      //                 listToExplore.push( childIndex );
-      //                 // block.push(childIndex)
-      //             }
-      //     }.bind(this));
-      // }
 
       while (listToExplore.length > 0) {
         var nodeIndex = listToExplore.shift();
+        nodes[nodeIndex].visited = true;
+        block.push(nodeIndex);
 
         if (nodes[nodeIndex].links.length > 1) {
           rightStack.push(nodes[nodeIndex].links[1]);
+          listToExplore.push(nodes[nodeIndex].links[0]);
+        } else if (rightStack.length > 1) {
+          listToExplore.push(rightStack.pop());
         }
       }
+
+      _this.setState({
+        block: block
+      });
     }, _temp));
   }
 

@@ -37,27 +37,25 @@ export default class App extends Component{
 
     computePreorder = (start) => {
         let block = [], rightStack=[];
-
-        block.push(start);
         let nodes = this.state.Data;
         let listToExplore = [ start ];
-        nodes[ start ].visited = true;
-        // while ( listToExplore.length > 0 ) {
-        //     let nodeIndex = listToExplore.shift();
-        //     nodes[ nodeIndex ].links.forEach( function( childIndex ) {
-        //             if ( !nodes[ childIndex ].visited ) {
-        //                 nodes[ childIndex ].visited = true;
-        //                 listToExplore.push( childIndex );
-        //                 // block.push(childIndex)
-        //             }
-        //     }.bind(this));
-        // }
+
         while ( listToExplore.length > 0 ) {
             let nodeIndex = listToExplore.shift();
-            if(nodes[nodeIndex].links.length>1){
+            nodes[ nodeIndex ].visited = true;
+            block.push(nodeIndex);
+            if(nodes[ nodeIndex ].links.length>1){
                 rightStack.push(nodes[nodeIndex].links[1]);
+                listToExplore.push( nodes[nodeIndex].links[0]);
+            }
+            else if(rightStack.length>1){                
+                listToExplore.push(rightStack.pop());    
             }
         }
+
+        this.setState({
+            block:block
+        })        
     }
 
     render(){
