@@ -4,53 +4,53 @@
         "visited": false
     }, 
     {
-        "links": [ 0, 2, 3 ],
+        "links": [ 2, 3 ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 1 ],
+        "links": [ ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 1, 4, 5],
+        "links": [ 4, 5],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 3, 6, 7 ],
+        "links": [ 6, 7 ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 3, 9, 10 ],
+        "links": [ 9, 10 ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 4 ],
+        "links": [  ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 4 ],
+        "links": [  ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 0 ],
+        "links": [  ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 5 ],
+        "links": [  ],
         "path": [],
         "visited": false
     },
     {
-        "links": [ 5 ],
+        "links": [  ],
         "path": [],
         "visited": false
-    },
+    }
 ]
