@@ -23,6 +23,7 @@ const Container = styled.div`
     /* background:#e8e2db; */
     display:flex;
     flex-direction:row;
+    margin-top: 37px;
 `;
 
 const Block = styled.div`

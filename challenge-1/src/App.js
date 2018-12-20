@@ -7,9 +7,9 @@ import Graph from './Graph';
 export default class App extends Component{
 
     state = {
-        Data:data,
+        Data:[...data],
         block:[],
-        algo:1
+        algo:"1"
     }
 
     componentDidMount(){
@@ -18,14 +18,14 @@ export default class App extends Component{
 
     computeBFS = (start) => {
         let block = [];
-        let nodes = this.state.Data;
+        var nodes = this.state.Data;
         let listToExplore = [ start ];
-
         nodes[ start ].visited = true;
-
+        console.log(data[ start ].visited);
+        block.push(start)
         while ( listToExplore.length > 0 ) {
             let nodeIndex = listToExplore.shift();
-            nodes[ nodeIndex ].links.forEach( function( childIndex ) {
+            nodes[ nodeIndex ].links.map( function( childIndex ) {
                 if ( !nodes[ childIndex ].visited ) {
                     nodes[ childIndex ].visited = true;
                     listToExplore.push( childIndex );
@@ -36,13 +36,13 @@ export default class App extends Component{
         this.setState({
             block:block
         })
+ 
     }
 
     computePreorder = (start) => {
         let block = [], rightStack=[];
         let nodes = this.state.Data;
         let listToExplore = [ start ];
-
         while ( listToExplore.length > 0 ) {
             let nodeIndex = listToExplore.shift();
             nodes[ nodeIndex ].visited = true;
@@ -51,7 +51,7 @@ export default class App extends Component{
                 rightStack.push(nodes[nodeIndex].links[1]);
                 listToExplore.push( nodes[nodeIndex].links[0]);
             }
-            else if(rightStack.length>1){                
+            else if(rightStack.length>0){                
                 listToExplore.push(rightStack.pop());    
             }
         }
@@ -96,31 +96,53 @@ export default class App extends Component{
             }
             else{
                 let em = rightStack.pop();
-                block.push(nodeIndex,em);
-                // block.push(nodeIndex);
-                // // if()
-                let el = nodes[em].links[1];
-                console.log(nodes[rightStack[rightStack.length-1]].links[1]);
-                if(el){
-                    // listToExplore.push(el);
+                // block.push(nodeIndex,em);
+                if(em === undefined){
+                    block.push(nodeIndex) 
                 }
+                else{
+                   block.push(nodeIndex,em);
+                }
+                // let el = nodes[em].links[1]||null;
+                (typeof(nodes[em]) === 'undefined')?
+                    null
+                :                 
+                    listToExplore.push(nodes[em].links[1]);
             }
         }
-        console.log(block, rightStack);
-        
+        this.setState({
+            block:block
+        })        
     }
 
-    changeAlgo = (i) =>{
-        // this.setState({
-        //     algo:i
-        // })
+    changeAlgo = (i) =>{        
+        this.setState({
+            algo:i
+        },()=>{
+            switch(i){
+                case "1" :
+                    this.computeBFS(0);
+                    break;
+                case "2" :
+                    this.computeInorder(0);
+                    break;
+                case "3" :
+                    this.computePostorder(0);
+                    break;
+                case "4" :
+                    this.computePreorder(0);
+                    break;
+                default:
+                    this.computeBFS(0);
+            }
+        })
     }
 
     render(){
         return(
             <div>
-                <SelectAlgo/>
-                <Blocks block={this.state.block} changeAlgo={this.changeAlgo()}/>
+                <SelectAlgo changeAlgo={(i)=>{this.changeAlgo(i)}}/>
+                <Blocks block={this.state.block} />
                 <Graph/>
             </div>
         )

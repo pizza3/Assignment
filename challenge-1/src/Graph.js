@@ -78,9 +78,10 @@ export default class extends Component{
 
 
 const Container = styled.div`
-    width:100%;
+    width:300px;
     height:auto;
     /* background:#e8e2db; */
     display:flex;
     flex-direction:row;
+    margin-left:calc(50% - 150px);
 `;

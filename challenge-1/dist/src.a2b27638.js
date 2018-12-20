@@ -27758,7 +27758,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    width:100%;\n    height:70px;\n    /* background:#e8e2db; */\n    display:flex;\n    flex-direction:row;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width:100%;\n    height:70px;\n    /* background:#e8e2db; */\n    display:flex;\n    flex-direction:row;\n    margin-top: 37px;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -27843,6 +27843,38 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    text-align:center;\n    margin-top: 10px;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    text-align:center;\n    font-size: 31px;\n    margin-top: 32px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    width:100%;\n    height:70px;\n\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27860,20 +27892,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    width:100%;\n    height:70px;\n    background:#e8e2db;\n\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.div(_templateObject());
 
 var SelectAlgo =
 /*#__PURE__*/
@@ -27899,7 +27917,7 @@ function (_Component) {
       _this.setState({
         value: event.target.value
       }, function () {
-        _this.props.changeAlgo(event.target.value);
+        _this.props.changeAlgo(_this.state.value);
       });
     }, _temp));
   }
@@ -27907,7 +27925,7 @@ function (_Component) {
   _createClass(SelectAlgo, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement(Container, null, _react.default.createElement("select", {
+      return _react.default.createElement(Container, null, _react.default.createElement(Text, null, "Select Search Algorithm"), _react.default.createElement(Select, null, _react.default.createElement("select", {
         value: this.state.value,
         onChange: this.handleChange
       }, _react.default.createElement("option", {
@@ -27918,7 +27936,7 @@ function (_Component) {
         value: "3"
       }, "DFS-Post"), _react.default.createElement("option", {
         value: "4"
-      }, "DFS-Pre")));
+      }, "DFS-Pre"))));
     }
   }]);
 
@@ -27926,6 +27944,12 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = SelectAlgo;
+
+var Container = _styledComponents.default.div(_templateObject());
+
+var Text = _styledComponents.default.div(_templateObject2());
+
+var Select = _styledComponents.default.div(_templateObject3());
 },{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/Graph.js":[function(require,module,exports) {
 "use strict";
 
@@ -27943,7 +27967,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    width:100%;\n    height:auto;\n    /* background:#e8e2db; */\n    display:flex;\n    flex-direction:row;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width:300px;\n    height:auto;\n    /* background:#e8e2db; */\n    display:flex;\n    flex-direction:row;\n    margin-left:calc(50% - 150px);\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -28347,6 +28371,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -28382,18 +28414,20 @@ function (_Component) {
     }
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      Data: _data.default,
+      Data: _toConsumableArray(_data.default),
       block: [],
-      algo: 1
+      algo: "1"
     }, _this.computeBFS = function (start) {
       var block = [];
       var nodes = _this.state.Data;
       var listToExplore = [start];
       nodes[start].visited = true;
+      console.log(_data.default[start].visited);
+      block.push(start);
 
       while (listToExplore.length > 0) {
         var nodeIndex = listToExplore.shift();
-        nodes[nodeIndex].links.forEach(function (childIndex) {
+        nodes[nodeIndex].links.map(function (childIndex) {
           if (!nodes[childIndex].visited) {
             nodes[childIndex].visited = true;
             listToExplore.push(childIndex);
@@ -28419,7 +28453,7 @@ function (_Component) {
         if (nodes[nodeIndex].links.length > 1) {
           rightStack.push(nodes[nodeIndex].links[1]);
           listToExplore.push(nodes[nodeIndex].links[0]);
-        } else if (rightStack.length > 1) {
+        } else if (rightStack.length > 0) {
           listToExplore.push(rightStack.pop());
         }
       }
@@ -28463,22 +28497,52 @@ function (_Component) {
           rightStack.push(nodeIndex);
           listToExplore.push(nodes[nodeIndex].links[0]);
         } else {
-          var em = rightStack.pop();
-          block.push(nodeIndex, em); // block.push(nodeIndex);
-          // // if()
+          var em = rightStack.pop(); // block.push(nodeIndex,em);
 
-          var el = nodes[em].links[1];
-          console.log(nodes[rightStack[rightStack.length - 1]].links[1]);
+          if (em === undefined) {
+            block.push(nodeIndex);
+          } else {
+            block.push(nodeIndex, em);
+          } // let el = nodes[em].links[1]||null;
 
-          if (el) {// listToExplore.push(el);
-          }
+
+          typeof nodes[em] === 'undefined' ? null : listToExplore.push(nodes[em].links[1]);
         }
       }
 
-      console.log(block, rightStack);
-    }, _this.changeAlgo = function (i) {// this.setState({
-      //     algo:i
-      // })
+      _this.setState({
+        block: block
+      });
+    }, _this.changeAlgo = function (i) {
+      _this.setState({
+        algo: i
+      }, function () {
+        switch (i) {
+          case "1":
+            _this.computeBFS(0);
+
+            break;
+
+          case "2":
+            _this.computeInorder(0);
+
+            break;
+
+          case "3":
+            _this.computePostorder(0);
+
+            break;
+
+          case "4":
+            _this.computePreorder(0);
+
+            break;
+
+          default:
+            _this.computeBFS(0);
+
+        }
+      });
     }, _temp));
   }
 
@@ -28490,9 +28554,14 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_SelectAlgo.default, null), _react.default.createElement(_Blocks.default, {
-        block: this.state.block,
-        changeAlgo: this.changeAlgo()
+      var _this2 = this;
+
+      return _react.default.createElement("div", null, _react.default.createElement(_SelectAlgo.default, {
+        changeAlgo: function changeAlgo(i) {
+          _this2.changeAlgo(i);
+        }
+      }), _react.default.createElement(_Blocks.default, {
+        block: this.state.block
       }), _react.default.createElement(_Graph.default, null));
     }
   }]);
