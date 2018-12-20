@@ -27747,26 +27747,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    width:10%;\n    height:50px;\n    border-radius:4px;    \n    text-align:center;\n    margin:10px;\n    padding-top:10px;\n    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);\n    background-image: linear-gradient(to right, #434343 0%, black 100%);\n    color: #fff;\n    font-size: 30px;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width:10%;\n    height:50px;\n    border-radius:4px;    \n    text-align:center;\n    margin:10px;\n    padding-top:10px;\n    box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);\n    background:#53d397;\n    color: #fff;\n    font-size: 30px;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -27787,9 +27769,23 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Container = _styledComponents.default.div(_templateObject());
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-var Block = _styledComponents.default.div(_templateObject2());
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 var Blocks =
 /*#__PURE__*/
@@ -27827,6 +27823,10 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = Blocks;
+
+var Container = _styledComponents.default.div(_templateObject());
+
+var Block = _styledComponents.default.div(_templateObject2());
 },{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/SelectAlgo.js":[function(require,module,exports) {
 "use strict";
 
@@ -27894,10 +27894,12 @@ function (_Component) {
     }
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(SelectAlgo)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      value: 'BFS'
+      value: '1'
     }, _this.handleChange = function (event) {
       _this.setState({
         value: event.target.value
+      }, function () {
+        _this.props.changeAlgo(event.target.value);
       });
     }, _temp));
   }
@@ -27909,13 +27911,13 @@ function (_Component) {
         value: this.state.value,
         onChange: this.handleChange
       }, _react.default.createElement("option", {
-        value: "BFS"
+        value: "1"
       }, "BFS"), _react.default.createElement("option", {
-        value: "DFS-In"
+        value: "2"
       }, "DFS-In"), _react.default.createElement("option", {
-        value: "DFS-Post"
+        value: "3"
       }, "DFS-Post"), _react.default.createElement("option", {
-        value: "DFS-Pre"
+        value: "4"
       }, "DFS-Pre")));
     }
   }]);
@@ -27924,6 +27926,403 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = SelectAlgo;
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/Graph.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n    width:100%;\n    height:auto;\n    /* background:#e8e2db; */\n    display:flex;\n    flex-direction:row;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var _default =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(_default, _Component);
+
+  function _default() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
+    _classCallCheck(this, _default);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(_default)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {}, _temp));
+  }
+
+  _createClass(_default, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(Container, null, _react.default.createElement("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 542 641",
+        style: {
+          width: '300px'
+        }
+      }, _react.default.createElement("g", {
+        id: "Group_3",
+        "data-name": "Group 3",
+        transform: "translate(-247 -83)"
+      }, _react.default.createElement("g", {
+        id: "Group_2",
+        "data-name": "Group 2",
+        transform: "translate(0 -1)"
+      }, _react.default.createElement("g", {
+        id: "Ellipse_10",
+        "data-name": "Ellipse 10",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#53d397",
+        transform: "translate(247 640)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Group_1",
+        "data-name": "Group 1"
+      }, _react.default.createElement("g", {
+        id: "Ellipse_1",
+        "data-name": "Ellipse 1",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(475 84)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_2",
+        "data-name": "Ellipse 2",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(390 223)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_3",
+        "data-name": "Ellipse 3",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(560 223)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Path_1",
+        "data-name": "Path 1",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(305 362)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_5",
+        "data-name": "Ellipse 5",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(475 362)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_6",
+        "data-name": "Ellipse 6",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(332 501)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_7",
+        "data-name": "Ellipse 7",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(619 501)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_8",
+        "data-name": "Ellipse 8",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(534 640)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_9",
+        "data-name": "Ellipse 9",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(704 640)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("g", {
+        id: "Ellipse_11",
+        "data-name": "Ellipse 11",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        fill: "#ff6a6a",
+        transform: "translate(417 640)"
+      }, _react.default.createElement("circle", {
+        cx: "42.5",
+        cy: "42.5",
+        r: "42.5"
+      })), _react.default.createElement("line", {
+        id: "Line_3",
+        "data-name": "Line 3",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x2: "60",
+        y2: "60",
+        transform: "translate(534.5 164.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_4",
+        "data-name": "Line 4",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x1: "60",
+        y2: "60",
+        transform: "translate(442.5 164.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_5",
+        "data-name": "Line 5",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x1: "60",
+        y2: "60",
+        transform: "translate(353.5 302.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_6",
+        "data-name": "Line 6",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x1: "60",
+        y2: "60",
+        transform: "translate(293.5 580.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_7",
+        "data-name": "Line 7",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x2: "60",
+        y2: "60",
+        transform: "translate(395.5 580.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_8",
+        "data-name": "Line 8",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x2: "60",
+        y2: "60",
+        transform: "translate(681.5 580.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_9",
+        "data-name": "Line 9",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x1: "60",
+        y2: "60",
+        transform: "translate(580.5 580.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_10",
+        "data-name": "Line 10",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x1: "82",
+        y2: "82",
+        transform: "translate(407.5 435.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_11",
+        "data-name": "Line 11",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x2: "82",
+        y2: "82",
+        transform: "translate(546.5 435.5)"
+      }), _react.default.createElement("line", {
+        id: "Line_12",
+        "data-name": "Line 12",
+        stroke: "#707070",
+        strokeWidth: "3px",
+        x2: "60",
+        y2: "60",
+        transform: "translate(451.5 302.5)"
+      }), _react.default.createElement("text", {
+        id: "_1",
+        "data-name": "1",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(421 278)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "1")), _react.default.createElement("text", {
+        id: "_2",
+        "data-name": "2",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(338 417)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "2")), _react.default.createElement("text", {
+        id: "_3",
+        "data-name": "3",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(510 417)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "3")), _react.default.createElement("text", {
+        id: "_4",
+        "data-name": "4",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(365 554)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "4")), _react.default.createElement("text", {
+        id: "_6",
+        "data-name": "6",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(279 693)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "6")), _react.default.createElement("text", {
+        id: "_7",
+        "data-name": "7",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(449 693)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "7")), _react.default.createElement("text", {
+        id: "_9",
+        "data-name": "9",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(567 695)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "9")), _react.default.createElement("text", {
+        id: "_5",
+        "data-name": "5",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(652 554)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "5")), _react.default.createElement("text", {
+        id: "_10",
+        "data-name": "10",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(728 695)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "10")), _react.default.createElement("text", {
+        id: "_8",
+        "data-name": "8",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(593 278)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "8")))), _react.default.createElement("text", {
+        id: "_0",
+        "data-name": "0",
+        fill: "#fff",
+        fontSize: "34px",
+        transform: "translate(509 136)"
+      }, _react.default.createElement("tspan", {
+        x: "0",
+        y: "0"
+      }, "0")))));
+    }
+  }]);
+
+  return _default;
+}(_react.Component);
+
+exports.default = _default;
+
+var Container = _styledComponents.default.div(_templateObject());
 },{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
@@ -27939,6 +28338,8 @@ var _data = _interopRequireDefault(require("./data.json"));
 var _Blocks = _interopRequireDefault(require("./Blocks"));
 
 var _SelectAlgo = _interopRequireDefault(require("./SelectAlgo"));
+
+var _Graph = _interopRequireDefault(require("./Graph"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27982,7 +28383,8 @@ function (_Component) {
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
       Data: _data.default,
-      block: []
+      block: [],
+      algo: 1
     }, _this.computeBFS = function (start) {
       var block = [];
       var nodes = _this.state.Data;
@@ -28047,20 +28449,51 @@ function (_Component) {
       _this.setState({
         block: block.reverse()
       });
-    }, _this.computeInorder = function (start) {}, _temp));
+    }, _this.computeInorder = function (start) {
+      var block = [],
+          rightStack = [];
+      var nodes = _this.state.Data;
+      var listToExplore = [start];
+
+      while (listToExplore.length > 0) {
+        var nodeIndex = listToExplore.shift();
+        nodes[nodeIndex].visited = true;
+
+        if (nodes[nodeIndex].links.length > 1) {
+          rightStack.push(nodeIndex);
+          listToExplore.push(nodes[nodeIndex].links[0]);
+        } else {
+          var em = rightStack.pop();
+          block.push(nodeIndex, em); // block.push(nodeIndex);
+          // // if()
+
+          var el = nodes[em].links[1];
+          console.log(nodes[rightStack[rightStack.length - 1]].links[1]);
+
+          if (el) {// listToExplore.push(el);
+          }
+        }
+      }
+
+      console.log(block, rightStack);
+    }, _this.changeAlgo = function (i) {// this.setState({
+      //     algo:i
+      // })
+    }, _temp));
   }
 
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.computePostorder(0);
+      this.computeBFS(0);
     }
   }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement(_SelectAlgo.default, null), _react.default.createElement(_Blocks.default, {
-        block: this.state.block
-      }));
+        block: this.state.block,
+        changeAlgo: this.changeAlgo()
+      }), _react.default.createElement(_Graph.default, null));
     }
   }]);
 
@@ -28068,7 +28501,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","./data.json":"src/data.json","./Blocks":"src/Blocks.js","./SelectAlgo":"src/SelectAlgo.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./data.json":"src/data.json","./Blocks":"src/Blocks.js","./SelectAlgo":"src/SelectAlgo.js","./Graph":"src/Graph.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
