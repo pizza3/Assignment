@@ -1,4 +1,4 @@
-# hacker earth challenge
+# Assignment-1
 
 Run the following commands inside ```/challenge-1``` directory.
 
@@ -25,3 +25,4 @@ npm build
 <p align="center">
   <img src="./demo.gif"  width="55%">
 </p>
+
