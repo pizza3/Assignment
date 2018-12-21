@@ -1,6 +1,7 @@
 import React ,{Component} from 'react';
+import PropTypes from 'prop-types';
 
-export default class extends Component{
+export default class Graph extends Component{
 
     animate(props){
         for(let i=0;i<props.block.length;i++){
@@ -27,8 +28,8 @@ export default class extends Component{
     render(){
         return(
             <div className='container'>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 641" style={{width:'300px',transform: 'scale(1.8)',marginTop: '105px'}}>
-                    <g id="Group_3" data-name="Group 3" transform="translate(-247 -83)" style={{transform:'scale(0.5)'}}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 641" style={{width:'100%'}}>
+                    <g id="Group_3" data-name="Group 3" transform="translate(-247 -83)" >
                         <g id="Group_2" data-name="Group 2" transform="translate(0 -1)">
                         <g id="Ellipse_6" data-name="Ellipse 10"  className='style1' transform="translate(247 640)">
                             <circle cx="42.5" cy="42.5" r="42.5"/>
@@ -93,7 +94,7 @@ export default class extends Component{
                 {`
                     .container{
                         width:300px;
-                        height:auto;
+                        height: 50vh;
                         display:flex;
                         flex-direction:row;
                         margin-left:calc(50% - 150px);
@@ -117,3 +118,6 @@ export default class extends Component{
     }
 }
 
+Graph.propTypes = {
+    block: PropTypes.array,
+};

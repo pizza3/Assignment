@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export default class SelectAlgo extends Component{
     state={
@@ -47,3 +48,8 @@ export default class SelectAlgo extends Component{
         )
     }
 }
+
+
+SelectAlgo.propTypes = {
+    changeAlgo: PropTypes.func,
+};

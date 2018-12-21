@@ -8,7 +8,7 @@ import {computeBFS, computePreorder, computePostorder, computeInorder} from './A
 export default class App extends Component{
     state = {
         Data:data.slice(0),
-        block:[],
+        block:[]
     }
 
     componentDidMount(){

@@ -1,4 +1,5 @@
 import React ,{Component} from 'react';
+import PropTypes from 'prop-types';
 
 export default class Blocks extends Component{
 
@@ -68,3 +69,8 @@ export default class Blocks extends Component{
         )
     }
 }
+
+
+Blocks.propTypes = {
+    block: PropTypes.array,
+};
