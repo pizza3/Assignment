@@ -1,32 +1,36 @@
 import React ,{Component} from 'react';
 
 export default class Blocks extends Component{
-    state={
-
-    }
 
     animate(props){
-        for(let i=0;i<props.block.length;i++){
-            document.getElementById('Ellipse_'+props.block[i]).classList.remove('style2');
-            document.getElementById('Ellipse_'+props.block[i]).style.transitionDelay=0+'s'
-        }
-
         setTimeout(()=>{
             for(let j=0;j<props.block.length;j++){
-                let el = document.getElementById('Ellipse_'+props.block[j]);
+                let el = document.getElementById('block_'+j);    
                 el.style.transitionDelay=j+'s'
-                el.className.baseVal +=' style2';
-
+                el.classList.remove('hide');
             }
-        },1000) 
+        },1000)
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.block !== prevProps.block){
+            for(let i=0;i<this.props.block.length;i++){
+                let el = document.getElementById('block_'+i);
+                el.style.transitionDelay=0+'s'
+                el.className +=' hide';
+            }
+            this.animate(this.props)
+        }
+        
     }
 
     render(){
         return(
             <div className='container'>
-                {this.props.block.map((val,i)=>{
-                    return <div className='block' key={i}>{val}</div>
-                })}
+                {
+                    this.props.block.map((val,i)=>{
+                        return <div id={'block_'+i} className='block hide' key={i}>{val}</div>})
+                }
                 <style jsx>{`
                     .container{
                         width:100%;
@@ -36,18 +40,12 @@ export default class Blocks extends Component{
                         margin-top: 37px;
                     }
 
-                    .block{
-                        width:10%;
-                        height:50px;
-                        border-radius:4px;    
-                        text-align:center;
-                        margin:10px;
-                        padding-top:10px;
-                        box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
-                        background:#53d397;
-                        color: #fff;
-                        font-size: 30px;
-                        transition:0.5s;
+                    .hide{
+                        opacity:0;
+                    }
+
+                    .show{
+                        opacity:1;
                     }
                 `}
                 </style>

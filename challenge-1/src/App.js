@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import data from './data.json';
+// import data from './data.json';
 import Blocks from './Blocks';
 import SelectAlgo from './SelectAlgo';
 import Graph from './Graph';
@@ -17,10 +17,10 @@ export default class App extends Component{
 
     computeBFS = (start) => {
         let block = [];
-        var nodes = this.state.Data;
+        var nodes = data;
         let listToExplore = [ start ];
         nodes[ start ].visited = true;
-        console.log(data[ start ].visited);
+        // console.log(data[ start ].visited);
         block.push(start)
         while ( listToExplore.length > 0 ) {
             let nodeIndex = listToExplore.shift();
@@ -81,7 +81,7 @@ export default class App extends Component{
         })            
     }
 
-    computeInorder = (start) =>{
+    computeInorder = (start) => {
         let block = [], rightStack=[];
         let nodes = this.state.Data;
         let listToExplore = [ start ];
@@ -104,7 +104,7 @@ export default class App extends Component{
         })        
     }
 
-    changeAlgo = (i) =>{        
+    changeAlgo = (i) => {         
         this.setState({
             algo:i
         },()=>{
@@ -137,3 +137,61 @@ export default class App extends Component{
         )
     }
 }
+
+
+const data = [
+    {
+        "links": [ 1, 8 ],
+        "visited": false
+    }, 
+    {
+        "links": [ 2, 3 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 4, 5],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 6, 7 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [ 9, 10 ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [  ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [  ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [  ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [  ],
+        "path": [],
+        "visited": false
+    },
+    {
+        "links": [  ],
+        "path": [],
+        "visited": false
+    }
+]

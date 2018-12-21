@@ -1,22 +1,6 @@
 import React ,{Component} from 'react';
 
 export default class extends Component{
-    state={
-        block:[]
-    }
-
-    componentDidMount(){
-        // this.checkUpdate(this.props, this.state);
-    }
-
-    checkUpdate = (props, state)=>{
-        if(state.block != props.block){
-            this.setState({
-                block:props.block
-            });
-            this.animate(props)
-        }
-    }
 
     animate(props){
         for(let i=0;i<props.block.length;i++){
@@ -34,12 +18,17 @@ export default class extends Component{
         },1000) 
     }
 
+    componentDidUpdate(prevProps){
+        if(this.props.block !== prevProps.block){
+            this.animate(this.props)
+        }
+    }
+
     render(){
-        this.checkUpdate(this.props, this.state);
         return(
             <div className='container'>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 641" style={{width:'300px'}}>
-                    <g id="Group_3" data-name="Group 3" transform="translate(-247 -83)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 641" style={{width:'300px',transform: 'scale(1.8)',marginTop: '105px'}}>
+                    <g id="Group_3" data-name="Group 3" transform="translate(-247 -83)" style={{transform:'scale(0.5)'}}>
                         <g id="Group_2" data-name="Group 2" transform="translate(0 -1)">
                         <g id="Ellipse_6" data-name="Ellipse 10"  className='style1' transform="translate(247 640)">
                             <circle cx="42.5" cy="42.5" r="42.5"/>

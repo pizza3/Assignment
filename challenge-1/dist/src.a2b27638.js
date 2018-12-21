@@ -24007,52 +24007,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/data.json":[function(require,module,exports) {
-module.exports = [{
-  "links": [1, 8],
-  "visited": false
-}, {
-  "links": [2, 3],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [4, 5],
-  "path": [],
-  "visited": false
-}, {
-  "links": [6, 7],
-  "path": [],
-  "visited": false
-}, {
-  "links": [9, 10],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}];
-},{}],"node_modules/string-hash/index.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"node_modules/string-hash/index.js":[function(require,module,exports) {
 "use strict";
 
 function hash(str) {
@@ -25000,50 +24955,49 @@ function (_Component) {
   _inherits(Blocks, _Component);
 
   function Blocks() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    var _temp;
-
     _classCallCheck(this, Blocks);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Blocks)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {}, _temp));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Blocks).apply(this, arguments));
   }
 
   _createClass(Blocks, [{
     key: "animate",
     value: function animate(props) {
-      for (var i = 0; i < props.block.length; i++) {
-        document.getElementById('Ellipse_' + props.block[i]).classList.remove('style2');
-        document.getElementById('Ellipse_' + props.block[i]).style.transitionDelay = 0 + 's';
-      }
-
       setTimeout(function () {
         for (var j = 0; j < props.block.length; j++) {
-          var el = document.getElementById('Ellipse_' + props.block[j]);
+          var el = document.getElementById('block_' + j);
           el.style.transitionDelay = j + 's';
-          el.className.baseVal += ' style2';
+          el.classList.remove('hide');
         }
       }, 1000);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.block !== prevProps.block) {
+        for (var i = 0; i < this.props.block.length; i++) {
+          var el = document.getElementById('block_' + i);
+          el.style.transitionDelay = 0 + 's';
+          el.className += ' hide';
+        }
+
+        this.animate(this.props);
+      }
     }
   }, {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
-        className: "jsx-2875654712" + " " + "container"
+        className: "jsx-2854162403" + " " + "container"
       }, this.props.block.map(function (val, i) {
         return _react.default.createElement("div", {
+          id: 'block_' + i,
           key: i,
-          className: "jsx-2875654712" + " " + "block"
+          className: "jsx-2854162403" + " " + "block hide"
         }, val);
       }), _react.default.createElement(_style.default, {
-        styleId: "2875654712",
-        css: ".container.jsx-2875654712{width:100%;height:70px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-top:37px;}.block.jsx-2875654712{width:10%;height:50px;border-radius:4px;text-align:center;margin:10px;padding-top:10px;box-shadow:0px 0px 10px -5px rgba(0,0,0,0.75);background:#53d397;color:#fff;font-size:30px;-webkit-transition:0.5s;transition:0.5s;}"
+        styleId: "2854162403",
+        css: ".container.jsx-2854162403{width:100%;height:70px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-top:37px;}.hide.jsx-2854162403{opacity:0;}.show.jsx-2854162403{opacity:1;}"
       }));
     }
   }]);
@@ -25191,36 +25145,12 @@ function (_Component) {
   _inherits(_default, _Component);
 
   function _default() {
-    var _getPrototypeOf2;
-
-    var _this;
-
-    var _temp;
-
     _classCallCheck(this, _default);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(_default)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      block: []
-    }, _this.checkUpdate = function (props, state) {
-      if (state.block != props.block) {
-        _this.setState({
-          block: props.block
-        });
-
-        _this.animate(props);
-      }
-    }, _temp));
+    return _possibleConstructorReturn(this, _getPrototypeOf(_default).apply(this, arguments));
   }
 
   _createClass(_default, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// this.checkUpdate(this.props, this.state);
-    }
-  }, {
     key: "animate",
     value: function animate(props) {
       for (var i = 0; i < props.block.length; i++) {
@@ -25237,22 +25167,33 @@ function (_Component) {
       }, 1000);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.block !== prevProps.block) {
+        this.animate(this.props);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      this.checkUpdate(this.props, this.state);
       return _react.default.createElement("div", {
         className: "jsx-273932237" + " " + "container"
       }, _react.default.createElement("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         viewBox: "0 0 542 641",
         style: {
-          width: '300px'
+          width: '300px',
+          transform: 'scale(1.8)',
+          marginTop: '105px'
         },
         className: "jsx-273932237"
       }, _react.default.createElement("g", {
         id: "Group_3",
         "data-name": "Group 3",
         transform: "translate(-247 -83)",
+        style: {
+          transform: 'scale(0.5)'
+        },
         className: "jsx-273932237"
       }, _react.default.createElement("g", {
         id: "Group_2",
@@ -25605,8 +25546,6 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _data = _interopRequireDefault(require("./data.json"));
-
 var _Blocks = _interopRequireDefault(require("./Blocks"));
 
 var _SelectAlgo = _interopRequireDefault(require("./SelectAlgo"));
@@ -25618,14 +25557,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -25662,15 +25593,15 @@ function (_Component) {
     }
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      Data: _toConsumableArray(_data.default),
+      Data: [].concat(data),
       block: [],
       algo: "1"
     }, _this.computeBFS = function (start) {
       var block = [];
-      var nodes = _this.state.Data;
+      var nodes = data;
       var listToExplore = [start];
-      nodes[start].visited = true;
-      console.log(_data.default[start].visited);
+      nodes[start].visited = true; // console.log(data[ start ].visited);
+
       block.push(start);
 
       while (listToExplore.length > 0) {
@@ -25813,7 +25744,51 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","./data.json":"src/data.json","./Blocks":"src/Blocks.js","./SelectAlgo":"src/SelectAlgo.js","./Graph":"src/Graph.js"}],"src/index.js":[function(require,module,exports) {
+var data = [{
+  "links": [1, 8],
+  "visited": false
+}, {
+  "links": [2, 3],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [4, 5],
+  "path": [],
+  "visited": false
+}, {
+  "links": [6, 7],
+  "path": [],
+  "visited": false
+}, {
+  "links": [9, 10],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}];
+},{"react":"node_modules/react/index.js","./Blocks":"src/Blocks.js","./SelectAlgo":"src/SelectAlgo.js","./Graph":"src/Graph.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
