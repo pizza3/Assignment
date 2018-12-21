@@ -24007,7 +24007,52 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"node_modules/string-hash/index.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"src/data.json":[function(require,module,exports) {
+module.exports = [{
+  "links": [1, 8],
+  "visited": false
+}, {
+  "links": [2, 3],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [4, 5],
+  "path": [],
+  "visited": false
+}, {
+  "links": [6, 7],
+  "path": [],
+  "visited": false
+}, {
+  "links": [9, 10],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}, {
+  "links": [],
+  "path": [],
+  "visited": false
+}];
+},{}],"node_modules/string-hash/index.js":[function(require,module,exports) {
 "use strict";
 
 function hash(str) {
@@ -24988,16 +25033,16 @@ function (_Component) {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", {
-        className: "jsx-2854162403" + " " + "container"
+        className: "jsx-3980344809" + " " + "container"
       }, this.props.block.map(function (val, i) {
         return _react.default.createElement("div", {
           id: 'block_' + i,
           key: i,
-          className: "jsx-2854162403" + " " + "block hide"
+          className: "jsx-3980344809" + " " + "block hide"
         }, val);
       }), _react.default.createElement(_style.default, {
-        styleId: "2854162403",
-        css: ".container.jsx-2854162403{width:100%;height:70px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-top:37px;}.hide.jsx-2854162403{opacity:0;}.show.jsx-2854162403{opacity:1;}"
+        styleId: "3980344809",
+        css: ".container.jsx-3980344809{width:100%;height:70px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;margin-top:37px;}.block.jsx-3980344809{width:10%;height:50px;border-radius:4px;text-align:center;margin:10px;padding-top:15px;box-shadow:0px 0px 10px -5px rgba(0,0,0,0.75);background:#53d397;color:#fff;font-size:20px;-webkit-transition:0.5s;transition:0.5s;}.hide.jsx-3980344809{opacity:0;}.show.jsx-3980344809{opacity:1;}"
       }));
     }
   }]);
@@ -25088,13 +25133,13 @@ function (_Component) {
       }, "BFS"), _react.default.createElement("option", {
         value: "2",
         className: "jsx-4146493467"
-      }, "DFS-In"), _react.default.createElement("option", {
+      }, "DFS In-Order"), _react.default.createElement("option", {
         value: "3",
         className: "jsx-4146493467"
-      }, "DFS-Post"), _react.default.createElement("option", {
+      }, "DFS Post-Order"), _react.default.createElement("option", {
         value: "4",
         className: "jsx-4146493467"
-      }, "DFS-Pre"))), _react.default.createElement(_style.default, {
+      }, "DFS Pre-Prder"))), _react.default.createElement(_style.default, {
         styleId: "4146493467",
         css: ".container.jsx-4146493467{width:100%;height:70px;}.text.jsx-4146493467{text-align:center;font-size:31px;margin-top:32px;}.select.jsx-4146493467{text-align:center;margin-top:10px;}"
       }));
@@ -25536,7 +25581,120 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = _default;
-},{"styled-jsx/style":"node_modules/styled-jsx/style.js","react":"node_modules/react/index.js"}],"src/App.js":[function(require,module,exports) {
+},{"styled-jsx/style":"node_modules/styled-jsx/style.js","react":"node_modules/react/index.js"}],"src/Algo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.computeInorder = exports.computePostorder = exports.computePreorder = exports.computeBFS = void 0;
+
+var computeBFS = function computeBFS(start, data) {
+  var block = [];
+  var nodes = new Array();
+  nodes = data.slice(0);
+  var listToExplore = [start];
+  nodes[start].visited = true;
+  console.log(data[start].visited);
+  block.push(start);
+
+  while (listToExplore.length > 0) {
+    var nodeIndex = listToExplore.shift();
+    nodes[nodeIndex].links.map(function (childIndex) {
+      if (!nodes[childIndex].visited) {
+        nodes[childIndex].visited = true;
+        listToExplore.push(childIndex);
+        block.push(childIndex);
+      }
+    });
+  }
+
+  return block;
+};
+
+exports.computeBFS = computeBFS;
+
+var computePreorder = function computePreorder(start, data) {
+  var block = [],
+      rightStack = [];
+  var nodes = data;
+  var listToExplore = [start];
+
+  while (listToExplore.length > 0) {
+    var nodeIndex = listToExplore.shift();
+    nodes[nodeIndex].visited = true;
+    block.push(nodeIndex);
+
+    if (nodes[nodeIndex].links.length > 1) {
+      rightStack.push(nodes[nodeIndex].links[1]);
+      listToExplore.push(nodes[nodeIndex].links[0]);
+    } else if (rightStack.length > 0) {
+      listToExplore.push(rightStack.pop());
+    }
+  } // this.setState({
+  //     block:block
+  // })        
+
+
+  return block;
+};
+
+exports.computePreorder = computePreorder;
+
+var computePostorder = function computePostorder(start, data) {
+  var block = [],
+      leftStack = [];
+  var nodes = data;
+  var listToExplore = [start];
+
+  while (listToExplore.length > 0) {
+    var nodeIndex = listToExplore.shift();
+    nodes[nodeIndex].visited = true;
+    block.push(nodeIndex);
+
+    if (nodes[nodeIndex].links.length > 1) {
+      leftStack.push(nodes[nodeIndex].links[0]);
+      listToExplore.push(nodes[nodeIndex].links[1]);
+    } else if (leftStack.length > 0) {
+      listToExplore.push(leftStack.pop());
+    }
+  }
+
+  return block.reverse(); // this.setState({
+  //     block:block.reverse()
+  // })            
+};
+
+exports.computePostorder = computePostorder;
+
+var computeInorder = function computeInorder(start, data) {
+  var block = [],
+      rightStack = [];
+  var nodes = data;
+  var listToExplore = [start];
+
+  while (listToExplore.length > 0) {
+    var nodeIndex = listToExplore.shift();
+    nodes[nodeIndex].visited = true;
+
+    if (nodes[nodeIndex].links.length > 1) {
+      rightStack.push(nodeIndex);
+      listToExplore.push(nodes[nodeIndex].links[0]);
+    } else {
+      var em = rightStack.pop();
+      em === undefined ? block.push(nodeIndex) : block.push(nodeIndex, em);
+      typeof nodes[em] === 'undefined' ? null : listToExplore.push(nodes[em].links[1]);
+    }
+  } // this.setState({
+  //     block:block
+  // })       
+
+
+  return block;
+};
+
+exports.computeInorder = computeInorder;
+},{}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -25546,11 +25704,15 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _data = _interopRequireDefault(require("./data.json"));
+
 var _Blocks = _interopRequireDefault(require("./Blocks"));
 
 var _SelectAlgo = _interopRequireDefault(require("./SelectAlgo"));
 
 var _Graph = _interopRequireDefault(require("./Graph"));
+
+var _Algo = require("./Algo");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25593,127 +25755,34 @@ function (_Component) {
     }
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      Data: [].concat(data),
-      block: [],
-      algo: "1"
-    }, _this.computeBFS = function (start) {
-      var block = [];
-      var nodes = data;
-      var listToExplore = [start];
-      nodes[start].visited = true; // console.log(data[ start ].visited);
-
-      block.push(start);
-
-      while (listToExplore.length > 0) {
-        var nodeIndex = listToExplore.shift();
-        nodes[nodeIndex].links.map(function (childIndex) {
-          if (!nodes[childIndex].visited) {
-            nodes[childIndex].visited = true;
-            listToExplore.push(childIndex);
-            block.push(childIndex);
-          }
-        });
-      }
-
-      _this.setState({
-        block: block
-      });
-    }, _this.computePreorder = function (start) {
-      var block = [],
-          rightStack = [];
-      var nodes = _this.state.Data;
-      var listToExplore = [start];
-
-      while (listToExplore.length > 0) {
-        var nodeIndex = listToExplore.shift();
-        nodes[nodeIndex].visited = true;
-        block.push(nodeIndex);
-
-        if (nodes[nodeIndex].links.length > 1) {
-          rightStack.push(nodes[nodeIndex].links[1]);
-          listToExplore.push(nodes[nodeIndex].links[0]);
-        } else if (rightStack.length > 0) {
-          listToExplore.push(rightStack.pop());
-        }
-      }
-
-      _this.setState({
-        block: block
-      });
-    }, _this.computePostorder = function (start) {
-      var block = [],
-          leftStack = [];
-      var nodes = _this.state.Data;
-      var listToExplore = [start];
-
-      while (listToExplore.length > 0) {
-        var nodeIndex = listToExplore.shift();
-        nodes[nodeIndex].visited = true;
-        block.push(nodeIndex);
-
-        if (nodes[nodeIndex].links.length > 1) {
-          leftStack.push(nodes[nodeIndex].links[0]);
-          listToExplore.push(nodes[nodeIndex].links[1]);
-        } else if (leftStack.length > 0) {
-          listToExplore.push(leftStack.pop());
-        }
-      }
-
-      _this.setState({
-        block: block.reverse()
-      });
-    }, _this.computeInorder = function (start) {
-      var block = [],
-          rightStack = [];
-      var nodes = _this.state.Data;
-      var listToExplore = [start];
-
-      while (listToExplore.length > 0) {
-        var nodeIndex = listToExplore.shift();
-        nodes[nodeIndex].visited = true;
-
-        if (nodes[nodeIndex].links.length > 1) {
-          rightStack.push(nodeIndex);
-          listToExplore.push(nodes[nodeIndex].links[0]);
-        } else {
-          var em = rightStack.pop();
-          em === undefined ? block.push(nodeIndex) : block.push(nodeIndex, em);
-          typeof nodes[em] === 'undefined' ? null : listToExplore.push(nodes[em].links[1]);
-        }
-      }
-
-      _this.setState({
-        block: block
-      });
+      Data: _data.default.slice(0),
+      block: []
     }, _this.changeAlgo = function (i) {
+      var data;
+
+      switch (i) {
+        case "1":
+          data = (0, _Algo.computeBFS)(0, _this.state.Data);
+          break;
+
+        case "2":
+          data = (0, _Algo.computeInorder)(0, _this.state.Data);
+          break;
+
+        case "3":
+          data = (0, _Algo.computePostorder)(0, _this.state.Data);
+          break;
+
+        case "4":
+          data = (0, _Algo.computePreorder)(0, _this.state.Data);
+          break;
+
+        default:
+          data = (0, _Algo.computeBFS)(0, _this.state.Data);
+      }
+
       _this.setState({
-        algo: i
-      }, function () {
-        switch (i) {
-          case "1":
-            _this.computeBFS(0);
-
-            break;
-
-          case "2":
-            _this.computeInorder(0);
-
-            break;
-
-          case "3":
-            _this.computePostorder(0);
-
-            break;
-
-          case "4":
-            _this.computePreorder(0);
-
-            break;
-
-          default:
-            _this.computeBFS(0);
-
-        }
+        block: data
       });
     }, _temp));
   }
@@ -25721,7 +25790,9 @@ function (_Component) {
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.computeBFS(0);
+      this.setState({
+        block: (0, _Algo.computeBFS)(0, this.state.Data)
+      });
     }
   }, {
     key: "render",
@@ -25744,51 +25815,7 @@ function (_Component) {
 }(_react.Component);
 
 exports.default = App;
-var data = [{
-  "links": [1, 8],
-  "visited": false
-}, {
-  "links": [2, 3],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [4, 5],
-  "path": [],
-  "visited": false
-}, {
-  "links": [6, 7],
-  "path": [],
-  "visited": false
-}, {
-  "links": [9, 10],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}, {
-  "links": [],
-  "path": [],
-  "visited": false
-}];
-},{"react":"node_modules/react/index.js","./Blocks":"src/Blocks.js","./SelectAlgo":"src/SelectAlgo.js","./Graph":"src/Graph.js"}],"src/index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./data.json":"src/data.json","./Blocks":"src/Blocks.js","./SelectAlgo":"src/SelectAlgo.js","./Graph":"src/Graph.js","./Algo":"src/Algo.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));

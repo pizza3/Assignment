@@ -40,6 +40,21 @@ export default class Blocks extends Component{
                         margin-top: 37px;
                     }
 
+                    .block{
+                        width:10%;
+                        height:50px;
+                        border-radius:4px;    
+                        text-align:center;
+                        margin:10px;
+                        padding-top:15px;
+                        box-shadow: 0px 0px 10px -5px rgba(0,0,0,0.75);
+                        background:#53d397;
+                        color: #fff;
+                        font-size: 20px;
+                        transition:0.5s;
+                    }
+        
+
                     .hide{
                         opacity:0;
                     }

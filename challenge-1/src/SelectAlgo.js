@@ -21,9 +21,9 @@ export default class SelectAlgo extends Component{
                 <div className='select'>
                     <select value={this.state.value} onChange={this.handleChange}>
                         <option value="1">BFS</option>
-                        <option value="2">DFS-In</option>
-                        <option value="3">DFS-Post</option>
-                        <option value="4">DFS-Pre</option>
+                        <option value="2">DFS In-Order</option>
+                        <option value="3">DFS Post-Order</option>
+                        <option value="4">DFS Pre-Prder</option>
                     </select>
                 </div>
                 <style jsx>{`
