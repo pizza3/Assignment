@@ -12,7 +12,6 @@ export default class SelectAlgo extends Component{
         });
     }
 
-
     render(){
         return(
             <div className='container'>
